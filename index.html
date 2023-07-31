@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene cursor="rayOrigin: mouse">
+      <a-entity position="0 1.6 -3">
+        <a-entity
+          geometry="primitive: plane; width: 1; height: 0.2"
+          material="color: red"
+          text="value: Click me!; align: center"
+          position="0 0 0.1"
+          class="clickable"
+          animation__click="
+            property: scale;
+            to: 1.2 1.2 1.2;
+            dur: 200;
+            easing: easeOutQuad;
+            startEvents: click;
+          "
+          event-set__click="_event: click; material.color: blue"
+        ></a-entity>
+        <a-entity
+          geometry="primitive: box; width: 1.2; height: 0.4; depth: 0.1"
+          material="color: white; opacity: 0.2"
+          position="0 0 -0.05"
+        ></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
